@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>秒表</title>
+</head>
+<body>
+	时：<input type="text" id="hours" value="00"> | 分：<input type="text" id="minutes" value="00"> | 秒：<input type="text" id="seconds" value="00"> | 毫秒：<input type="text" id="millionseconds" value="00">
+	<p></p>
+	<input type="button" value="Start" onclick="tStart();">
+	<input type="button" value="Stop" onclick="tStop();">
+	<input type="button" value="Reset" onclick="tReset();">
+
+
+	<script>
+
+		var ms = document.getElementById('millionseconds');
+		var s = document.getElementById('seconds');
+		var m = document.getElementById('minutes');
+		var h = document.getElementById('hours');
+
+		var timer = null;
+
+		var counter = function () {
+			ms.value = parseInt(ms.value) + 1;
+			if (ms.value >= 100) {
+				ms.value = 0;				
+				s.value = parseInt(s.value) + 1;	
+				if (s.value >= 60) {
+					s.value = 0;
+					m.value = parseInt(m.value) + 1;
+						if (m.value >= 60) {
+						m.value = 0;
+						h.value = parseInt(h.value) + 1;
+					}					
+				}			
+			}			
+		}
+
+		function tStart () {
+			timer = setInterval(counter, 10);
+		}
+
+		function tStop () {
+			clearInterval(timer);
+		}
+
+		function tReset () {
+			clearInterval(timer);
+			ms.value = 00;
+			s.value = 00;
+			m.value = 00;
+			h.value = 00;
+		}
+		
+
+	</script>
+</body>
+</html>
