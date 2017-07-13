@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制变形图形3 -- 坐标变换</title>
+</head>
+<body>
+	<canvas id="canvas" width="360" height="300" style="margin-left: 300px;"></canvas>
+
+	<script>
+
+		window.addEventListener("load", function(){
+			var ctx = document.getElementById('canvas').getContext("2d");
+			ctx.translate(130, 120);
+			for (var i = 1; i < 7; i++) {
+				ctx.save();
+				ctx.fillStyle = 'rgba(' + (30 * i) + ',' + (255 - 30 * i) + '255, 1)';
+				for (var j = 0; j < i * 7; j++) {
+					ctx.translate(1, 1);
+					ctx.rotate(Math.PI * 2 / (i * 7));
+					ctx.beginPath();
+					ctx.scale(1.02, 1.02);
+					ctx.arc(0, i * 12, 5, 0, Math.PI * 2, false);
+					ctx.fill();
+				}
+				ctx.restore();
+			}
+		});
+		/*
+		 * 坐标变换函数
+		 * translate(x, y) -- x 表示向右移动，y 表示向下移动
+		 * scale(x, y) -- x 表示水平方向的放大倍数，y 表示垂直方向的放大倍数，取 0-1 之间的数则为缩小
+		 * rotate(angle) -- angle 表示旋转的角度，旋转的中心点是坐标轴的原点，旋转是以顺时针方向进行的，
+		 * 					若参数设为负值，则表示逆时针
+		 */
+	</script>
+</body>
+</html>

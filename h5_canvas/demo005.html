@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制直线</title>
+	<style>
+		canvas{
+			float: left;
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="line1" height="200px" width="170px"></canvas>
+
+	<canvas id="line2" height="200px" width="250px"></canvas>
+
+	<canvas id="line3" height="200px" width="250px"></canvas>
+
+	<script>
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('line1');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				/*
+				 * 绘制直线步骤：
+				 * 1、创建路径 -- beginPath
+				 * 2、设置起始点坐标 -- moveTo(x,y)
+				 * 3、设置目标点坐标 -- lineTo(x,y)
+				 * 4、绘制图形的边框 -- 调用stroke()函数绘制图形，若图形不是一条直线，可选择使用fill()填充
+				 * 5、填充 -- fill()  可选,用于可填充图形
+				 * 6、关闭路径 -- closePath  可选
+				 */
+				context.beginPath();	//开始创建路径
+				context.lineWidth = 1;
+				context.moveTo(20,100);	//起始点坐标
+				context.lineTo(150,100);//目标点坐标
+				context.stroke();		//调用stroke函数绘制直线
+				context.closePath();	//关闭路径
+			}
+		}, true);
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('line2');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				context.beginPath();	//开始创建路径
+				context.lineWidth = 1;
+				context.moveTo(160,50);	//起始点坐标
+				context.lineTo(50,100);	//目标点坐标
+				context.lineTo(160,185);//目标点坐标
+				context.stroke();		//调用stroke函数绘制直线
+			}
+		}, true);
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('line3');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				context.beginPath();	//开始创建路径
+				context.lineWidth = 1;
+				context.moveTo(160,50);	//起始点坐标
+				context.lineTo(50,100);	//目标点坐标
+				context.lineTo(160,185);//目标点坐标
+				context.fill();			//调用fill()函数绘制图形
+			}
+		}, true);
+	</script>
+</body>
+</html>

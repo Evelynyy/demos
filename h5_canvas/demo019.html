@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas绑定事件</title>
+</head>
+<body>
+	<canvas id="canvas" width="300px" height="500px" style="background:#fbb;"></canvas>
+
+	<script>
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+
+		canvas.onmousemove = function(event){
+			// 获取鼠标坐标值 event.offsetX|event.offsetY
+			// 清除
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			// 绘制
+			context.beginPath();
+			context.arc(event.offsetX, event.offsetY, 20, 0, Math.PI * 2);
+			context.fill();
+		}
+			
+	</script>
+</body>
+</html>

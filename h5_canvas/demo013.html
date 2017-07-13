@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制变形图形4 -- 矩阵变换</title>
+</head>
+<body>
+	<canvas id="diagonal" width="300" height="300" style="margin-left: 300px;"></canvas>
+
+	<script>
+
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('diagonal');
+			if (canvas && canvas.getContext) {
+				var ctx = canvas.getContext("2d");
+				ctx.transform(1, 0, 0, 1, 150, 150);
+				ctx.beginPath();
+				ctx.fillStyle = "rgba(255, 0, 0, 0.25)";
+				rad = 18 * Math.PI / 90;
+				for (var i = 0; i < 10; i++) {
+					ctx.fillRect(0, 0, 100, 100);
+					// 设置旋转效果
+					ctx.transform(Math.cos(rad), Math.sin(rad), -Math.sin(rad), Math.cos(rad), 0, 0);
+					ctx.closePath();
+				}
+			}
+		});
+		/*
+		 * 矩阵变换函数
+		 * transform(a, b, c, d, e, f) 
+		 * 各参数意义
+		 * 		a -- 水平缩放
+		 * 		b -- 水平倾斜
+		 * 		c -- 垂直倾斜
+		 * 		d -- 垂直缩放
+		 * 		e -- 水平移动
+		 * 		f -- 垂直移动
+		 * 	rotate(x, y) 使用 transform(a, b, c, d, e, f) 方法替换如下
+		 * 		ctx.transform(
+		 * 				Math.cos(angle*Math.PI/180),
+		 * 			 	Math.sin(angle*Math.PI/180),
+		 * 				-Math.sin(angle*Math.PI/180),
+		 * 				Math.cos(angle*Math.PI/180),
+		 * 				0, 0);
+		 *  或  ctx.transform(
+		 * 				-Math.sin(angle*Math.PI/180),
+		 * 			 	Math.cos(angle*Math.PI/180),
+		 * 				Math.cos(angle*Math.PI/180),
+		 * 				Math.sin(angle*Math.PI/180),
+		 * 				0, 0); 	
+		 * setTransform(a, b, c, d, e, f) -- 重置矩阵			
+		 */
+	</script>
+</body>
+</html>

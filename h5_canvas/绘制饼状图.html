@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制饼状图</title>
+	<script src="Chart.js"></script>
+</head>
+<body>
+	<canvas id="pie" width="300" height="300"/>
+
+	<script>
+
+		var canvas = document.getElementById('pie');
+		var ctx = canvas.getContext('2d');
+
+		var data = [
+				{
+					value: 30,				//当前收占饼状图的比例
+					color:"#F7464A",		//当前数据颜色
+					highlight: "#FF5A5E",	//鼠标悬停时数据块颜色
+					label: "Red"			//当前数据块提示信息
+				},
+				{
+					value: 45,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Green"
+				},
+				{
+					value: 15,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Yellow"
+				},
+				{
+					value: 10,
+					color: "#4D5360",
+					highlight: "#616774",
+					label: "Dark Grey"
+				}
+
+			];
+
+		// Chart.defaults.global.responsive = true;
+
+		// 通过画布对象，创建Chart对象
+		var chart = new Chart(ctx);
+		// 利用Chart对象调用图表方法
+		chart.Pie(data);
+
+	</script>
+</body>
+</html>

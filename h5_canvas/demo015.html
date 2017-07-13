@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制阴影</title>
+</head>
+<body onload="PicShadow(), TxtShadow()">
+	<canvas width="300" height="220" id="canvas1"></canvas>
+	<canvas width="300" height="220" id="canvas2"></canvas>
+
+	<script>
+		function PicShadow(){
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext("2d");
+			ctx.shadowOffsetX = 15;
+			ctx.shadowOffsetY = 15;
+			ctx.shadowBlur = 10;
+			ctx.shadowColor = "rgba(100, 200, 100, 0.5)";
+			ctx.fillStyle = "#bbf";
+			ctx.arc(150, 100, 80, 0, Math.PI * 2, true);
+			ctx.fill();
+		}
+
+		function TxtShadow(){
+			var canvas = document.getElementById('canvas2');
+			var ctx = canvas.getContext("2d");
+			ctx.shadowOffsetX = -5;
+			ctx.shadowOffsetY = -5;
+			ctx.shadowBlur = 1;
+			ctx.shadowColor = "rgba(255, 125, 255, 0.5)";
+			ctx.strokeStyle = "#bbf";
+			ctx.font = "italic 25px sans-serif";
+			ctx.strokeText("实现文字和图形阴影", 30, 100);
+			ctx.stroke();
+		}
+	</script>
+</body>
+</html>

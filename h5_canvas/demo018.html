@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建路径绘制动态效果</title>
+</head>
+<body>
+	<canvas id="canvas" width="1000" height="600" style="background-color: #fbb;"></canvas>
+
+	<script>
+	
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		ctx.fillStyle = "#ffb"; 
+
+		function Ball(){
+			this.r = 20;	// 小球半径
+			this.x = parseInt(Math.random() * canvas.width);	// 小球圆心坐标值x
+			this.y = -this.r;	// 小球圆心坐标值y
+
+			this.paint = function(){	//绘制
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+				ctx.fill();
+			}
+
+			this.step = function(){		//移动
+				this.y++;
+			}
+		}
+
+		// 定义存储小球的数组
+		var arr = [];
+		// 定义函数 - 创建小球，添加到数组里
+		function createBall(){
+			var ball = new Ball();
+			arr.push(ball);
+		}
+
+		// 定义函数 - 将所有创建的小球绘制在画布中
+		function paintBall(){
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].paint();
+				arr[i].step();
+			}
+		}
+		var time = 0;
+		setInterval(function(){
+			// 清除画布
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			// 创建小球
+			time ++;
+			if(time % 10 == 0){
+				createBall();				
+			}
+			// 绘制 + 移动小球
+			paintBall();
+		}, 100);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制折线图</title>
+	<script src="Chart.js"></script>
+</head>
+<body>
+	<canvas id="bar" width="300" height="300"/>
+
+	<script>
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+		var canvas = document.getElementById('bar');
+		var ctx = canvas.getContext('2d');
+
+		var data = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				},
+				{
+					label: "My Second dataset",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				}
+			]
+
+		}
+
+		// Chart.defaults.global.responsive = true;
+
+		// 通过画布对象，创建Chart对象
+		var chart = new Chart(ctx);
+		// 利用Chart对象调用图表方法
+		chart.Line(data);
+
+	</script>
+
+</body>
+</html>

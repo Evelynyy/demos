@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制文字</title>
+</head>
+<body>
+	<canvas id="addText" height="70px" width="550px"></canvas>
+	<div>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;古时候，楚国有一家人，祭完祖宗之后，准备将祭祀用的一壶酒，赏给帮忙办事的人员喝。参加的人很多，这壶酒如果大家都喝是不够的，若是让一个人喝，那能喝得有余。这一壶酒到底怎么分呢？<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;大家都安静下来，这时有人建议：每个人在地上画一条蛇，谁画得快又画得好，就把这壶酒归他喝。大家都认为这个方法好，都同意这样做。于是，在地上画起蛇来。<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;有个人画得很快，一转眼最先画好了，他就端起酒壶要喝酒。但是他回 头看看别人，还都没有画好呢。心里想：他们画得真慢。又想显示自己的本领， 他洋洋得意地说： “你们画得好慢啊！我再给蛇画几只脚也不算晚呢！”于是，他便左手提着酒壶，右手拿了一根树枝，给蛇画起脚来。<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;正在他一边画着脚，一边说话的时候，另外一个人已经画好了。那个人 马上把酒壶从他手里夺过去，说："你见过蛇吗？蛇是没有脚的，你为什么要给它添上脚呢？所以第一个画好蛇的人不是你，而是我了！"<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;那个人说罢就仰起头来，咕咚咕咚把酒喝下去了。
+		</p>
+	</div>
+
+	<script>		
+		window.addEventListener("load", function (){
+			var canvas = document.getElementById('addText');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				context.fillStyle = "#00f";
+				context.font = "italic 15px sans-serif";
+				/*
+				 * textBaseline -- 设置文字相对于起点的位置
+				 * 取值包括 top hanging middle alphabetic ideographic(默认值) bottom
+				 */
+				context.textBaseline = "bottom";
+				/*
+				 * textAlign -- 设置文字的对齐方式
+				 * 取值包括 start(默认值) end left right center
+				 */
+				context.textAlign = "start";				
+				/*
+				 * context.fillText(text, x, y[, maxwidth])
+				 * 表示以填充的方式描绘文字
+				 */
+				context.fillText("(比喻做了多余的事，反而有害无利，徒劳无功。)", 160, 50);
+
+				context.strokeStyle = "#faa";	//设置颜色
+				context.font = "bold 30px sans-serif";
+				/*
+				 * context.strokeText(text, x, y[, maxwidth])
+				 * 表示已描边的方式绘制文字
+				 */
+				context.strokeText("画蛇添足", 30, 50);
+			}
+		}, true);
+	</script>
+</body>
+</html>

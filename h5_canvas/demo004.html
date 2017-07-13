@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制矩形</title>
+	<style>
+		canvas{
+			float: left;
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="rect1" height="250px" width="250px"></canvas>
+
+	<canvas id="rect2" height="250px" width="250px"></canvas>
+
+	<canvas id="rect3" height="250px" width="250px"></canvas>
+
+	<script>
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('rect1');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				// context.fillStyle = "#fbb";
+				context.strokeStyle = "#fbb";
+				context.lineWidth = 1;
+				// context.fillRect(25,65,200,120);
+				context.strokeRect(25,65,200,120)
+			}
+		}, true);
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('rect2');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				context.fillStyle = "#fbb";
+				context.strokeStyle = "#666";
+				context.lineWidth = 1;
+				/*
+				 * context.strokeRect(x, y, width, height) -- 绘制实心矩形
+				 * 坐标原点为画布左上角
+				 */
+				context.fillRect(25,25,200,200);
+				/*
+				 * context.strokeRect(x, y, width, height) -- 绘制空心矩形
+				 * 坐标原点为画布左上角
+				 */
+				context.strokeRect(25,25,200,200)
+			}
+		}, true);
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('rect3');
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				context.fillStyle = "#fbb";
+				context.strokeStyle = "#666";
+				context.lineWidth = 1;
+				context.fillRect(65,25,120,200);
+				// context.strokeRect(65,25,120,200);
+				/*
+				 * context.clearRect(x, y, width, height) -- 清除指定区域的像素
+				 * 坐标原点为画布左上角
+				 */
+				context.clearRect(65,65,50,50);
+			}
+		}, true);
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组合多个图形</title>
+</head>
+<body>
+	<canvas width="110" height="110" id="canvas1"></canvas>
+	<canvas width="110" height="110" id="canvas2"></canvas>
+	<canvas width="110" height="110" id="canvas3"></canvas>
+	<canvas width="110" height="110" id="canvas4"></canvas>
+	<canvas width="110" height="110" id="canvas5"></canvas>
+	<canvas width="110" height="110" id="canvas6"></canvas>
+	<canvas width="110" height="110" id="canvas7"></canvas>
+	<canvas width="110" height="110" id="canvas8"></canvas>
+	<canvas width="110" height="110" id="canvas9"></canvas>
+	<canvas width="110" height="110" id="canvas10"></canvas>
+	<canvas width="110" height="110" id="canvas11"></canvas>
+	<canvas width="110" height="110" id="canvas12"></canvas>
+
+	<script>
+		window.addEventListener("load", function(){
+			var oprtns = new Array("source-atop", "source-in", "source-out", "source-over", "destination-atop", "destination-in", "destination-out", "destination-over", "lighter", "copy", "darker", "xor");
+			for (var i = 0; i < 12; i++) {
+				var  canvas = document.getElementById('canvas' + (i+1));
+				if (canvas && canvas.getContext) {
+					var ctx = canvas.getContext("2d");
+					ctx.fillStyle = "#bbf";
+					ctx.fillRect(10, 10, 60, 60);
+					ctx.globalCompositeOperation = oprtns[i];
+					ctx.beginPath();
+					ctx.fillStyle = "#fbb";
+					ctx.arc(60, 60, 30, 0, Math.PI * 2, false);
+					ctx.fill();
+				}
+			}
+		});
+	</script>
+</body>
+</html>

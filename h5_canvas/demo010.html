@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制变形图形1 -- 保存和恢复状态</title>
+</head>
+<body>
+	<canvas id="canvas" width="250" height="250" style="margin-left: 100px;"></canvas>
+
+	<script>
+		window.addEventListener("load", function(){
+			var ctx = document.getElementById('canvas').getContext("2d");
+			ctx.fillStyle = "#fbb";
+			ctx.fillRect(0, 0, 250, 250);
+			ctx.save();
+			ctx.fillStyle = "#00f";
+			ctx.fillRect(15, 15, 220, 220);
+			ctx.save();
+			ctx.fillStyle = "#bbf";
+			ctx.globalAlpha = 0.5;
+			ctx.fillRect(30, 30, 190, 190);
+			ctx.restore();
+			ctx.fillRect(45, 45, 160, 160);
+			ctx.restore();
+			ctx.fillRect(60, 60, 130, 130);
+			/*
+			 * save方法用于临时保存画布坐标系统的状态
+			 * restore方法可以用来恢复save之后设置的状态即回到save之前的状态
+			 * save和restore方法必须是配对使用的
+			 * restore方法前必须有save方法，不然会报Underflow in restore错误
+			 * restore方法的调用只影响restore之后绘制的内容
+			 */		
+		});
+	</script>
+</body>
+</html>

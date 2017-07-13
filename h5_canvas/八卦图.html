@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制八卦图</title>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="600"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		// 绘制外围空心圆
+		ctx.beginPath();
+		ctx.arc(300,300,200,0,Math.PI*2);
+		ctx.stroke();
+
+		// 绘制黑色半圆 
+		ctx.beginPath();
+		ctx.arc(300,300,200,Math.PI/2,Math.PI*3/2);
+		ctx.fill();
+
+		// 绘制小白半圆
+		ctx.fillStyle = "#fff";
+		ctx.beginPath();
+		ctx.arc(300,200,100,Math.PI/2,Math.PI*3/2);
+		ctx.fill();
+
+		// 绘制小黑半圆
+		ctx.fillStyle = "#000";
+		ctx.beginPath();
+		ctx.arc(300,400,100,Math.PI*3/2,Math.PI/2);
+		ctx.fill();
+
+		// 绘制小黑圆
+		ctx.beginPath();
+		ctx.arc(300,200,30,0,Math.PI*2);
+		ctx.fill();
+
+		// 绘制小白圆
+		ctx.fillStyle = "#fff";		
+		ctx.beginPath();
+		ctx.arc(300,400,30,0,Math.PI*2);
+		ctx.fill();
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建路径绘制动态效果</title>
+</head>
+<body>
+	<canvas id="canvas" width="1000" height="600" style="background-color: #000;"></canvas>
+
+	<script>
+	
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		ctx.fillStyle = "#fff"; 
+
+		var y = 30;			
+
+		setInterval(function(){
+			// 清除之前绘制的所有图形
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			// 绘制圆形
+			ctx.beginPath();
+			// ctx.arc(500, y, 30, 0, Math.PI * 2);
+			// ctx.fill();
+			ctx.fillText("*", 500, y);
+
+			// 向下移动
+			y++;
+
+		}, 100);
+
+	</script>
+</body>
+</html>

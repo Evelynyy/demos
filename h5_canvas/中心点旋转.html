@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中心点旋转</title>
+</head>
+<body>
+	<canvas id="canvas" width="300" height="300" style="background-color: #fbb"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+
+		// 平移画布 -- 关键点
+		ctx.translate(canvas.width/2, canvas.height/2);
+		// 绘制矩形
+		ctx.strokeRect(-50,-50,100,100);
+		setInterval(function(){
+			ctx.clearRect(-canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
+			// 旋转画布
+			ctx.rotate(Math.PI/180*15);
+			ctx.strokeRect(-50,-50,100,100);
+		}, 100);
+	</script>
+</body>
+</html>

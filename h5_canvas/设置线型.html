@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置线型</title>
+</head>
+<body>
+	<canvas id="canvas" width="500px" height="500px"></canvas>
+ 	<script>
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+
+		// 设置线条的宽度
+		context.lineWidth = 10;
+		// 设置线条的端点形状
+		/*
+		 * lineCap 取值
+		 * butt -- 平直，默认值
+		 * round -- 圆形
+		 * square -- 正方形
+		 */
+		context.lineCap = "round";
+		// 设置线条的交点形状
+		/*
+		 * lineJoin 取值
+		 * round -- 创建圆角
+		 * bevel -- 创建斜角
+		 * miter -- 创建尖角，默认值
+		 */
+		context.lineJoin = "miter";
+		/* 配合 lineJoin值为miter时使用 */
+		context.miterLimit = 10;
+
+		// 绘制折线
+		context.beginPath();
+		context.moveTo(20,50);
+		context.lineTo(200,300);
+		context.lineTo(80,50);
+		context.stroke();
+  	</script>
+</body>
+</html>

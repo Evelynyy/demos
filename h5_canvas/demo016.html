@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小车滚动</title>
+</head>
+<body onload="init()">
+
+	<canvas id="canvas" width="715" height="600"></canvas>
+
+	<button type="button" onclick="speed(-0.1);">速度减慢</button>
+	<button type="button" onclick="play(this);">暂停滚动</button>
+	<button type="button" onclick="speed(+0.1);">速度加快</button>
+
+	<script>
+		var dx = 5, rate = 1, ani, c, w, grassHeight = 130, carAlpha = 0, carX = -400,
+			carY = 300, carWidth = 400, carHeight = 130, tiresDelta = 15, axisDelta = 20, radius = 60;
+		var car = document.getElementById('canvas');
+		car.height = carHeight + axisDelta + radius;
+		car.width = carWidth;
+		var w = car.getContext('2d');
+
+		function init(){
+			c = document.getElementById('canvas').getContext('2d');
+			drawCanvas();
+			play(this);
+		}
+
+		function drawCanvas(){
+			c.clearRect(0, 0, c.canvas.width, c.canvas.height);	// 清除canvas(已显示的)，避免产生错误
+			c.save();						// 保存当前坐标值以及状态，
+			drawGrass();					// 画背景
+			c.translate(carX, 0);			// 移动起点坐标
+			drawCar();						// 画汽车
+			c.drawImage(w.canvas, 0, carY);	// 画最终显示的汽车
+			c.restore();					// 回复canvas的状态
+			carX += dx;						// 重置汽车在x轴方向的位置
+			carAlpha += dx / radius;		// 按比例增加轮胎角度
+			if(carX > c.canvas.width){	// 设定某些定期的边界条件
+				carX = -carWidth - 10;
+			}
+		}
+
+		function drawGrass(){
+			var grass = c.createLinearGradient(0, c.canvas.height - grassHeight, 0, c.canvas.height);
+			grass.addColorStop(0, "#3c0");
+			grass.addColorStop(1, "#6f2");
+			c.fillStyle = grass;
+			c.lineWidth = 0;
+			c.fillRect(0, c.canvas.height - grassHeight, c.canvas.width, grassHeight);
+		}
+
+		function drawCar(){
+			w.clearRect(0, 0, w.canvas.width, w.canvas.height);		//清空隐藏的画板
+			w.strokeStyle = "#f60";					//设置边框颜色
+			w.lineWidth = 2;						//设置边框宽度
+			w.fillStyle = "#f90";					//设置填充色
+			w.beginPath();							//开始绘制新路径
+			w.fillRect(0, 0, carWidth, carHeight);	//绘制一个矩形
+			w.stroke();				
+			w.fill();
+			w.closePath();
+			drawTire(tiresDelta + radius, carHeight + axisDelta);	//开始画第一个轮子				
+			drawTire(carWidth - tiresDelta - radius, carHeight + axisDelta);			
+		}
+
+		function drawTire(x,y){
+			w.save();
+			w.translate(x, y);
+			w.rotate(carAlpha);
+			w.strokeStyle = "#30f";
+			w.lineWidth = 1;
+			w.fillStyle = "#09f";
+			w.beginPath();
+			w.arc(0, 0, radius, 0, Math.PI * 2, false);
+			w.fill();
+			w.closePath();
+			w.beginPath();
+			w.moveTo(radius, 0);
+			w.lineTo(-radius, 0);
+			w.stroke();
+			w.closePath();
+			w.beginPath();
+			w.moveTo(0, radius);
+			w.lineTo(0, -radius);
+			w.stroke();
+			w.closePath();
+			w.restore();
+		}
+
+		function speed(delta){
+			var newRate = Math.max(rate + delta, 0.1);
+			dx = newRate / rate * dx;
+			rate = newRate;
+		}
+
+		function play(s){
+			if(ani){
+				clearInterval(ani);
+				ani = null;
+				s.innerHTML = '开始滚动';
+			}else{
+				ani = setInterval(drawCanvas, 40);
+				s.innerHTML = '暂停滚动';				
+			}
+		}
+	</script>
+</body>
+</html>

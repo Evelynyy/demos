@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制笑脸</title>
+</head>
+<body>
+	<canvas width="190" height="160" id="smile"></canvas>
+
+	<script>
+		window.addEventListener("load", function(){
+			var canvas = document.getElementById('smile');
+			if (canvas && canvas.getContext) {
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+				ctx.moveTo(110, 75);
+				ctx.arc(75, 75, 35, 0, Math.PI, false);
+				ctx.moveTo(65, 65);
+				ctx.arc(65, 65, 5, 0, Math.PI * 2, true);
+				ctx.moveTo(95,65);
+				ctx.arc(90, 65, 5, 0, Math.PI * 2, true);
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.strokeStyle = "#f00";
+				ctx.moveTo(40, 75);
+				ctx.lineTo(60, 65);
+				ctx.lineTo(90, 65);
+				ctx.moveTo(110, 75);
+				ctx.lineTo(125, 75);
+				ctx.stroke();
+			}
+		});
+	</script>
+</body>
+</html>

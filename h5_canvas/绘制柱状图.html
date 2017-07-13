@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制柱状图</title>
+	<script src="Chart.js"></script>
+</head>
+<body>
+	<canvas id="bar" width="300" height="300"/>
+
+	<script>
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var canvas = document.getElementById('bar');
+		var ctx = canvas.getContext('2d');
+
+		var data = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,0.8)",
+					highlightFill: "rgba(220,220,220,0.75)",
+					highlightStroke: "rgba(220,220,220,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,0.8)",
+					highlightFill : "rgba(151,187,205,0.75)",
+					highlightStroke : "rgba(151,187,205,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				}
+			]
+
+		}
+
+		// Chart.defaults.global.responsive = true;
+
+		// 通过画布对象，创建Chart对象
+		var chart = new Chart(ctx);
+		// 利用Chart对象调用图表方法
+		chart.Bar(data);
+
+	</script>
+
+</body>
+</html>

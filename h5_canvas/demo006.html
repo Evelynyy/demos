@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制圆形</title>
+	<style>
+		canvas{
+			float: left;
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="circle1" height="180" width="190"></canvas>
+
+	<canvas id="circle2" height="180" width="190"></canvas>
+
+	<canvas id="circle3" height="180" width="190"></canvas>
+
+	<canvas id="circle4" height="180" width="190"></canvas>
+
+	<script>
+
+		function GetContext(id){
+			var canvas = document.getElementById(id);
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				return context;
+			}
+		}
+
+		window.addEventListener("load", function(){
+			var context = GetContext("circle1");
+			context.beginPath();
+			/*
+			 * arc(x,y,radius,startAngle,endAngle,anticlockwise) 
+			 * x, y 表示绘制圆形起点的横纵坐标
+			 * anticlockwise 表示是否按照顺时针方向进行绘制，取值为 true 和 false
+			 * Math.PI 表示角度为180度
+			 */
+			context.arc(80, 80, 60, Math.PI, Math.PI * 2, true);
+			context.stroke();
+		}, true);
+		window.addEventListener("load", function(){
+			var context = GetContext("circle2");
+			context.beginPath();
+			context.arc(80, 80, 60, 0, Math.PI * 2 / 4, true);
+			context.fill();
+		}, true);
+		window.addEventListener("load", function(){
+			var context = GetContext("circle3");
+			context.beginPath();
+			context.arc(80, 80, 60, Math.PI, (Math.PI * 2 / 4) * 3, false);
+			context.fill();
+		}, true);
+		window.addEventListener("load", function(){
+			var context = GetContext("circle4");
+			context.beginPath();
+			context.arc(80, 80, 60, 0, Math.PI * 2, true);
+			context.stroke();
+		}, true);
+	</script>
+</body>
+</html>

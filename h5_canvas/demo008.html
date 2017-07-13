@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制线性渐变</title>
+</head>
+<body>
+	<canvas width="320" height="150" id="canvas"></canvas>
+
+	<div><canvas id="title" height="30"></canvas></div>
+
+	<div><canvas id="context" height="115" width="378"></canvas></div>
+
+	<script>
+
+		function GetContext(id){
+			var canvas = document.getElementById(id);
+			if (canvas && canvas.getContext) {
+				var context = canvas.getContext("2d");
+				return context;
+			}
+		}
+
+		window.addEventListener("load", function(){
+			var ctx = GetContext("canvas");
+			/*
+			 * context.createLinearGradient(xStart, yStart, xEnd, yEnd)
+			 * 创建渐变对象
+			 */
+			var lingrad1 = ctx.createLinearGradient(0, 0, 0, 150);
+			/*
+			 * addColorStop(offset, color)
+			 * 设置渐变颜色
+			 * offset 表示所设定的颜色离开渐变起始点的偏移量，取值为 0-1
+			 * 0 表示渐变起始点的偏移量
+			 * 1 表示渐变结束点的偏移量
+			 */
+			lingrad1.addColorStop(0, '#00abeb');
+			lingrad1.addColorStop(0.5, '#fff');
+			lingrad1.addColorStop(0.5, '#26c000');
+			lingrad1.addColorStop(1, '#fff');
+
+			var lingrad2 = ctx.createLinearGradient(0, 50, 0, 95);
+			lingrad2.addColorStop(0.5, '#000');
+			lingrad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+			ctx.fillStyle = lingrad1;
+			ctx.strokeStyle = lingrad2;
+
+			ctx.fillRect(10, 10, 300, 130);
+			ctx.strokeRect(50, 50, 210, 210);
+		});
+
+		window.addEventListener("load", function(){
+			var ctx = GetContext("title");
+			ctx.font = "italic 15px sans-serif";
+			ctx.strokeText("绘制线性渐变", 90, 20);
+		});
+
+		window.addEventListener("load", function(){
+			var ctx = GetContext("context");
+			ctx.font = "italic 15px sans-serif";
+			ctx.fillText("本案例实现线性渐变的功能，主要使用到了 Linear", 15, 20);
+			ctx.fillText("rGradient 对象的 addColorStop()函数、context对象的", 0, 40);
+			ctx.fillText("fillStyle 和 StrokeStyle属性及 fillRect()函数和st", 0, 60);
+			ctx.fillText("rokeRect()函数", 0, 80);
+		});
+	</script>
+</body>
+</html>

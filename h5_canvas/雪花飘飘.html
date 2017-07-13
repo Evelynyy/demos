@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>雪花飘飘</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1355" height="625" style="background-color: #000;"></canvas>
+
+	<script>
+	
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+
+		ctx.fillStyle = "#fff"; 
+
+		function Ball(){
+			this.x = parseInt(Math.random() * canvas.width);	// 雪花左上角坐标值x
+			this.y = -5;	// 雪花左上角坐标值y
+
+			this.paint = function(){	//绘制
+				ctx.beginPath();
+				ctx.fillText("*", this.x, this.y);
+			}
+
+			this.step = function(){		//移动
+				this.y++;
+			}
+		}
+
+		// 定义存储小球的数组
+		var arr = [];
+		// 定义函数 - 创建雪花，添加到数组里
+		function createBall(){
+			var ball = new Ball();
+			arr.push(ball);
+		}
+
+		// 定义函数 - 将所有创建的小雪花绘制在画布中
+		function paintBall(){
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].paint();
+				arr[i].step();
+			}
+		}
+		var time = 0;
+		setInterval(function(){
+			// 清除画布
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			// 创建雪花
+			time ++;
+			if(time % 10 == 0){
+				createBall();				
+			}
+			// 绘制 + 移动雪花
+			paintBall();
+		}, 50);
+
+	</script>
+</body>
+</html>
