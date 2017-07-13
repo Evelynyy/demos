@@ -1,0 +1,6 @@
+<!-- list.wxml -->
+<view class="wrap">
+  <block wx:for="{{logs}}" wx:for-item="log">
+    <view class="item">{{log}}</view>
+  </block>
+</view>

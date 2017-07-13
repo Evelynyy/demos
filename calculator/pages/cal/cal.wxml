@@ -1,0 +1,34 @@
+<!--cal.wxml-->
+<view class="wrap">
+  <view class="screen">{{screenData}}</view>
+  <view class="btnGroup">
+    <view class="item orange" bindtap="btnClick" id="{{id1}}">退格</view>
+    <view class="item orange" bindtap="btnClick" id="{{id2}}">清屏</view>
+    <view class="item orange" bindtap="btnClick" id="{{id3}}">+/-</view>
+    <view class="item orange" bindtap="btnClick" id="{{id4}}">+</view>
+  </view>
+  <view class="btnGroup">
+    <view class="item blue" bindtap="btnClick" id="{{id5}}">9</view>
+    <view class="item blue" bindtap="btnClick" id="{{id6}}">8</view>
+    <view class="item blue" bindtap="btnClick" id="{{id7}}">7</view>
+    <view class="item orange" bindtap="btnClick" id="{{id8}}">-</view>
+  </view>
+  <view class="btnGroup">
+    <view class="item blue" bindtap="btnClick" id="{{id9}}">6</view>
+    <view class="item blue" bindtap="btnClick" id="{{id10}}">5</view>
+    <view class="item blue" bindtap="btnClick" id="{{id11}}">4</view>
+    <view class="item orange" bindtap="btnClick" id="{{id12}}">×</view>
+  </view>
+  <view class="btnGroup">
+    <view class="item blue" bindtap="btnClick" id="{{id13}}">3</view>
+    <view class="item blue" bindtap="btnClick" id="{{id14}}">2</view>
+    <view class="item blue" bindtap="btnClick" id="{{id15}}">1</view>
+    <view class="item orange" bindtap="btnClick" id="{{id16}}">÷</view>
+  </view>
+  <view class="btnGroup">
+    <view class="item blue" bindtap="btnClick" id="{{id17}}">0</view>
+    <view class="item blue" bindtap="btnClick" id="{{id18}}">.</view>
+    <view class="item blue" bindtap="history" id="{{id19}}">历史</view>
+    <view class="item orange" bindtap="btnClick" id="{{id20}}">=</view>
+  </view>
+</view>
