@@ -1,0 +1,362 @@
+@charset "utf-8";
+
+/*Basic Frame*/
+#navbar, #banner, #reminder, #call, #smart, #location, #iconlist, #footer{
+	border: 1px solid transparent;
+}
+#navbar{
+	height: 50px;
+}
+#banner{
+	height: 700px;	
+	background: url(images/bg_1.jpg) no-repeat;
+}
+#reminder{
+	height: 600px;	
+}
+#call{
+	height: 700px;
+	background: url(images/bg_2.jpg) no-repeat;
+}
+#smart{   
+	height: 700px;
+}
+#location{
+	height: 700px;
+	background: url(images/bg_4.jpg) no-repeat;
+}
+#iconlist{
+	height: 600px;
+}
+#footer{
+	height: 276px;
+	background-color: #363636;
+}
+/*Deails*/
+/*头部导航部分*/
+#navbar .logo{
+	float: left;
+	width: 152px;
+	height: 27px;
+	background: url(images/iconlist_1.png) no-repeat -870px -100px;
+	margin: 15px 0;
+}
+#navbar ul{
+	float: right;
+	margin: 15px 0;
+}
+#navbar ul li{
+	float: left;
+	margin-right: 5px;
+}
+#navbar ul li a{
+	text-align: center;
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+}
+#navbar ul li a.current,#navbar ul li a:hover{
+	border-bottom: 2px solid #f00;
+}
+#navbar ul li.android-download, #navbar ul li.wait{
+	width: 86px;
+	margin-right: 10px;
+}
+#navbar ul li.android-download b{
+	float: left;
+	width: 86px;
+	height: 27px;
+	border-radius: 3px;
+	background: url(images/iconlist_2.png) no-repeat -1656px -509px;
+}
+#navbar ul li.wait b{
+	float: left;
+	width: 86px;
+	height: 27px;
+	border-radius: 3px;
+	background: url(images/iconlist_2.png) no-repeat -1656px -536px;
+}
+/*banner部分*/
+#banner .txt{
+	width: 455px;
+	height: 100px;
+	background: url(images/iconlist_1.png) no-repeat -870px 0;
+	margin: 130px 0 0 315px;
+}
+#banner .pielist {
+	position: relative;
+	left: 160px;
+	top: 85px;
+}
+#banner .pie{
+	position: absolute;
+}
+#banner .pie i {
+	width: 173px;
+	height: 173px;
+	display: block;
+	background-image: url("images/iconlist_1.png");
+}
+#banner .pie b {
+	width: 173px;
+	height: 20px;
+	display: block;
+	background: url("images/iconlist_1.png") no-repeat -864px -130px;
+	margin-top: -5px;
+}
+#banner .p1 {
+	left: 0px;
+	z-index: 10;
+	animation: p1Anim 1000ms linear;
+}
+#banner .p1 i {
+	background-position: 0 0;
+}
+@keyframes p1Anim {
+	0% {
+		left: -740px;
+	}
+	100% {
+		left: 0;
+	}
+}
+#banner .p2 {
+	left: 153px;
+	z-index: 11;
+	animation: p2Anim 1207ms linear;
+}
+#banner .p2 i {
+	background-position: -174px 0;
+}
+@keyframes p2Anim {
+	0% {
+		left: -740px;
+	}
+	100% {
+		left: 153px;
+	}
+}
+#banner .p3 {
+	left: 306px;
+	z-index: 12;
+	animation: p3Anim 1414ms linear;
+}
+#banner .p3 i {
+	background-position: -348px 0;
+}
+@keyframes p3Anim {
+	0% {
+		left: -740px;
+	}
+	100% {
+		left: 306px;
+	}
+}
+#banner .p4 {
+	left: 459px;
+	z-index: 13;
+	animation: p4Anim 1620ms linear;
+}
+#banner .p4 i {
+	background-position: -522px 0;
+}
+@keyframes p4Anim {
+	0% {
+		left: -740px;
+	}
+	100% {
+		left: 459px;
+	}
+}
+#banner .p5 {
+	left: 612px;
+	z-index: 14;
+	animation: p5Anim 1827ms linear;
+}
+#banner .p5 i {
+	background-position: -696px 0;
+	animation: p5Rotate 1827ms linear;
+}
+@keyframes p5Anim {
+	0% {
+		left: -740px;
+	}
+	100% {
+		left: 612px;
+	}
+}
+@keyframes p5Rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(1080deg);
+	}
+}
+/*提醒部分*/
+#reminder .re-img01{
+	float: left;
+	margin-top: 83px;
+	margin-left: 360px;
+	display: block;
+	width: 360px;
+	height: 40px;
+	background: url(images/iconlist_2.png) no-repeat -592px -655px;
+}
+#reminder .re-img02{
+	float: left;
+	margin-top: 20px;
+	margin-left: 75px;
+	width: 1000px;
+	height: 50px;
+	background: url(images/iconlist_2.png) no-repeat -1443px -592px;
+}
+#reminder .re-img03{
+	float: left;
+	margin-top: 60px;
+	margin-left: 200px;
+	width: 640px;
+	height: 299px;
+	background: url(images/iconlist_2.png) no-repeat -1655px 0;
+}
+/*一键呼叫部分*/
+#call .c-txt{
+	float: left;
+	margin: 210px 50px 0 30px;
+	width: 515px;
+	height: 260px;
+	background: url(images/iconlist_2.png) no-repeat 0 -57px;
+}
+#call .c-mobile{
+	float: left;
+	margin-top: 80px;
+	width: 250px;
+	height: 530px;
+	background: url(images/iconlist_2.png) no-repeat -570px 0;
+}
+#call .c-mobile:hover{
+	transform: rotate(45deg);
+}
+/*智能提醒部分*/
+#smart .container img{
+	float: left;
+	margin: 110px 0 0 90px;
+}
+/*定位记录部分*/
+#location .l-mobile{
+	float: left;
+	margin: 80px 30px 0 290px;
+	width: 252px;
+	height: 530px;
+	background: url(images/iconlist_2.png) no-repeat -900px 0;
+}
+#location .l-txt{
+	float: left;
+	margin-top: 210px;
+	width: 445px;
+	height: 260px;
+	background: url(images/iconlist_2.png) no-repeat -1200px -114px;
+}
+#location .l-mobile:hover{
+	transform: rotate(-45deg);
+}
+/*页面底部小图标部分*/
+#iconlist .container ul{
+	float: left;
+	margin: 160px 0 160px 40px;
+}
+#iconlist .container ul li{
+	float: left;
+	display: inline-block;
+	width: 342px;
+	height: 83px;
+	margin: 0 10px 55px 0;
+}
+#iconlist .container ul li b{
+	width: 83px;
+	height: 83px;
+	float: left;
+	margin-right: 10px;
+}
+#iconlist .container ul li div{
+	position: relative;
+	top: 5px;
+}
+#iconlist .container ul li div h3{
+	font-size: 20px;
+}
+#iconlist .container ul li div h3.t01{	
+	color: #f3cb53;
+}
+#iconlist .container ul li b.icon01{
+	background: url(images/iconlist_3.png) no-repeat 0 0;
+}
+#iconlist .container ul li div h3.t02{
+	color: #f05157;
+}
+#iconlist .container ul li b.icon02{
+	background: url(images/iconlist_3.png) no-repeat -85px 0;
+}
+#iconlist .container ul li div h3.t03{	
+	color: #17caf6;
+}
+#iconlist .container ul li b.icon03{
+	background: url(images/iconlist_3.png) no-repeat -170px 0;
+}
+#iconlist .container ul li div h3.t04{
+	color: #8ad855;
+}
+#iconlist .container ul li b.icon04{
+	background: url(images/iconlist_3.png) no-repeat 0 -86px;
+}
+#iconlist .container ul li div h3.t05{	
+	color: #ff9650;
+}
+#iconlist .container ul li b.icon05{
+	background: url(images/iconlist_3.png) no-repeat -85px -86px;
+}
+#iconlist .container ul li div h3.t06{
+	color: #b099fc;
+}
+#iconlist .container ul li b.icon06{
+	background: url(images/iconlist_3.png) no-repeat -170px -86px;
+}
+/*网页底部*/
+#footer ul{
+	float: left;
+	margin-top: 65px;
+}
+#footer ul li{
+	height: 20px;
+	line-height: 20px;
+	color: #a2a2a2;
+}
+#footer ul li.title{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;	
+}
+#footer ul li h2{
+	font-weight: normal;
+}
+#footer ul li a{
+	color: #a2a2a2;
+}
+#footer ul.concern{
+	margin-left: 185px;
+	margin-right: 75px;
+}
+#footer .code-img{
+	float: right;
+	margin: 65px 160px 0 0;
+	width: 430px;
+	height: 115px;
+	background: url(images/iconlist_2.png) no-repeat 0 -590px;
+}
+#footer .container p{
+	float: left;
+	margin-top: 50px;
+	margin-left: 340px;
+}

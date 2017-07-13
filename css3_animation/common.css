@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font: 14px "Microsoft YaHei",Arial;
+	color: #666;
+	background-color: #fff;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+input{
+	border: none;
+}
+.lf{
+	float: left;
+}
+.rt{
+	float: right;
+}
+.container{
+	width: 1100px;
+	margin: 0 auto;
+}
+.container:before{
+	content: " ";
+	display: table;
+}
+.container:after{
+	content: " ";
+	display: table;
+	clear: both;
+}
