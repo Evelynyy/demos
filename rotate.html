@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            perspective: 100px;
+            margin: 50px auto;
+        }
+        #box .orbit{
+            background-color: transparent;
+            border-radius: 50%;
+            position: absolute;
+            border: 1px dashed gray;
+            margin: 0;
+            padding: 0;
+        }
+        #box .orbit1{
+            width: 400px;
+            height: 400px;
+        }
+        #box .orbit2{
+            width: 250px;
+            height: 250px;
+            margin: 75px;
+        }
+        #box .ball{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        #box .outer{            
+            animation: outer 10s linear 0s infinite;
+        }
+        #box .inner{            
+            animation: inner 5s linear 0s infinite;
+        }
+        #box .ball1{
+            float: left;
+            position: relative;
+            top: 175px;
+            left: -25px;
+            background-color: #bfb; 
+            transform-origin: 225px 25px;
+        }
+        #box .ball2{
+            float: left;
+            position: relative; 
+            top: 0px;
+            left: 30px;  
+            background-color: #fbb;
+            transform-origin: 120px 200px;
+        }
+        #box .ball3{
+            float: left;
+            position: relative;
+            top: 10px;
+            left: 180px; 
+            background-color: #bbf;
+            transform-origin: -80px 190px;
+        }
+        #box .ball4{
+            float: left;
+            position: relative;
+            top: 175px;
+            left: 225px; 
+            background-color: #ffb;
+            transform-origin: -175px 25px;
+        }
+        #box .ball5{
+            float: left;
+            position: relative;
+            top: 345px;
+            left: 75px; 
+            background-color: #bbf;
+            transform-origin: -75px -145px;
+        }
+        #box .ball6{
+            float: left;
+            position: relative;
+            top: 345px;
+            left: -180px;
+            background-color: #ffb;
+            transform-origin: 130px -145px;
+        }
+        #box .ball7{
+            float: left;
+            position: relative;
+            top: 35px;
+            left: -5px;
+            background-color: #fbf;
+            transform-origin: 130px 90px; 
+        }
+        #box .ball8{
+            float: left;
+            position: relative;
+            top: -15px;
+            left: 90px;
+            background-color: #bff;
+            transform-origin: -15px 140px;            
+        }
+        #box .ball9{
+            float: left;
+            position: relative;
+            top: 100px;
+            left: 120px;
+            background-color: #faa;
+            transform-origin: -95px 25px;            
+        }
+        #box .ball10{
+            float: left;
+            position: relative;
+            top: 220px;
+            left: -15px;
+            background-color: #afb;
+            transform-origin: -15px -95px;            
+        }
+        #box .ball11{
+            float: left;
+            position: relative;
+            top: 170px;
+            left: -200px;
+            background-color: #afb;
+            transform-origin: 125px -45px;            
+        }
+        @keyframes outer{
+            from{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(90deg);
+            }
+            50%{
+                transform: rotate(180deg);
+            }
+            75%{
+                transform: rotate(270deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes inner{
+            from{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(-90deg);
+            }
+            50%{
+                transform: rotate(-180deg);
+            }
+            75%{
+                transform: rotate(-270deg);
+            }
+            to{
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="orbit orbit1">
+            <div class="ball outer ball1"></div>
+            <div class="ball outer ball2"></div>
+            <div class="ball outer ball3"></div>
+            <div class="ball outer ball4"></div>
+            <div class="ball outer ball5"></div>
+            <div class="ball outer ball6"></div>
+        </div>
+       <div class="orbit orbit2">
+           <div class="ball inner ball7"></div>
+           <div class="ball inner ball8"></div>
+           <div class="ball inner ball9"></div>
+           <div class="ball inner ball10"></div>
+           <div class="ball inner ball11"></div>
+       </div>
+    </div>
+</body>
+</html>
