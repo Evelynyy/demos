@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.box {
+	width: 600px;
+	height: 550px;
+	border: 1px solid #ccc;
+	margin: 15px auto;
+}
+.tagbox {
+	width: 95%;
+	/*height: 200px;*/
+	background-color: #FFE4E1;
+	border-radius: 2px;
+	padding: 5px 5px 20px;
+	margin: 10px auto;
+}
+.tags {
+	margin-top: 15px;
+	margin-left: 5px;
+}
+.selectbox {
+	width: 95%;
+	margin: 10px auto;
+}
+.items {
+	display: inline-block;
+	padding-left: 10px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #3e5268;
+	color: #fff;
+	border-radius: 4px;
+	text-align: center;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+.icon-close {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/close.png) no-repeat;
+	float: right;
+	margin: 2px 2px 0 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.selection {
+	width: 40%;
+	display: inline-block;
+	margin-top: 20px;
+}
+button {
+	position: relative;
+	left: 10px;
+	top: -3px;
+}
