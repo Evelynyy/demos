@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>表单元素</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: PingFangSC-Regular,"Microsoft yahei","微软雅黑",Arial,sans-serif,Helvetica,sans-serif;
+			font-size: 1em;
+		}
+		.form-group {
+			width: 100%;
+		}
+		.tags {
+			display: inline-block;
+			width: 25%;
+			text-align: right;
+		}
+		.H-40 {
+			height: 40px;
+			line-height: 40px;
+			margin: 10px 0;
+		}
+		.H-30 {
+			height: 30px;
+			line-height: 30px;
+		}
+		.W-15 {
+			width: 15rem;
+		}
+		.reset-border {
+			border: 1px solid #ccc;
+		}
+		.pl-04 {
+			padding-left: .4rem;
+		}
+		textarea {
+			display: block;
+			width: 90%;
+			height: 10rem;
+			resize: none;
+			margin: .6rem auto;
+		}
+		.ta-center {
+			text-align: center;
+		}
+		.showInfo {
+			width: 100%;
+			height: auto;
+			padding: 1rem;
+			background-color: #ff8f34;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo-1">
+		<div class="form-group H-40">
+			<label class="tags">Email：</label>
+			<input type="text" id="email" v-model="email" placeholder="plase enter your email" class="H-30 reset-border W-15 pl-04">
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">UserName：</label>
+			<input type="text" id="username" v-model="username" placeholder="plase enter your username" class="H-30 reset-border W-15 pl-04">
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">Password：</label>
+			<input type="password" id="password" v-model="password" placeholder="plase enter your password" class="H-30 reset-border W-15 pl-04">
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">Phone：</label>
+			<input type="tel" id="phone" v-model="phone" placeholder="plase enter your tel number" class="H-30 reset-border W-15 pl-04">
+		</div>
+		<div class="form-group H-40">
+  			<label class="tags">Sex：</label>
+			<input type="radio" id="female" value="female" v-model="sex">
+			<label for="female">female</label>
+			<input type="radio" id="male" value="male" v-model="sex">
+			<label for="male">male</label>
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">Birthday：</label>
+			<input type="date" name="birth" v-model="birth" class="H-30 reset-border W-15 pl-04">
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">Hobby：</label>
+		 	<input type="checkbox" id="balls" value="balls" v-model="hobby">
+		 	<label for="balls">balls</label>
+		 	<input type="checkbox" id="music" value="music" v-model="hobby">
+		 	<label for="music">music</label>
+		 	<input type="checkbox" id="reading" value="reading" v-model="hobby">
+		 	<label for="reading">reading</label>
+		</div>
+		<div class="form-group H-40">
+			<label class="tags">Area：</label>
+			<select v-model="area" class="H-30 reset-border W-15 pl-04">
+			    <option disabled>Please choose your area</option>
+			    <option>Asia</option>
+			    <option>Africa</option>
+			    <option>Europe</option>
+			    <option>North America</option>
+			    <option>South America</option>
+			    <option>Oceania</option>
+			    <option>Antarctica</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Brief introduction for yourself：</label>
+			<textarea v-model="intro" placeholder="say something to introdece yourself" class="pl-04 reset-border"></textarea>
+		</div>
+
+		<!-- show information part -->
+		<div class="showInfo">
+			<h1 class="ta-center">Register Information Tab</h1>
+			<p>email : {{email}}</p>
+			<p>username : {{username}}</p>
+			<p>password : {{password}}</p>
+			<p>phone : {{phone}}</p>
+			<p>sex : {{sex}}</p>
+			<p>birth : {{birth}}</p>
+			<p>hobby : {{hobby}}</p>
+			<p>area : {{area}}</p>
+			<p>brief : {{intro}}</p>
+		</div>
+		<!-- show information part end -->
+	</div>
+	<script src="vue.min.js"></script>
+	<script src='demo.js'></script>
+</body>
+</html>
